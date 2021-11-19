@@ -1,12 +1,11 @@
 package ordersystem;
-import java.math.BigDecimal;
 
 public class Product {
 
 	private String name;
-	private BigDecimal price;
+	private float price;
 	
-	public Product(String name, BigDecimal price) {
+	public Product(String name, float price) {
 		super();
 		this.name = name;
 		this.price = price;
@@ -18,12 +17,15 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public BigDecimal getPrice() {
+	public float getPrice() {
 		return price;
 	}
-	public void setPrice(BigDecimal price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return getName() + "($" + String.format("%.2f", getPrice()).replace(",", ".") + " each)";
+	}
 }

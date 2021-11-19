@@ -11,10 +11,10 @@ import ordersystem.interfaces.OrderTotalCalculator;
 public class DefaultCalculator implements OrderTotalCalculator {
 
 	@Override
-	public BigDecimal getTotal(List<OrderLine> orderLines) {
-		BigDecimal total = new BigDecimal(0);
+	public float getTotal(List<OrderLine> orderLines) {
+		float total = 0;
 		for(OrderLine line : orderLines) {			
-			total = total.add(line.getLineTotal());
+			total += line.getLineTotal();
 		}
 		return total;
 	}

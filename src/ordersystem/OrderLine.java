@@ -1,7 +1,5 @@
 package ordersystem;
 
-import java.math.BigDecimal;
-
 public class OrderLine {
 
 	private Product product;
@@ -13,10 +11,9 @@ public class OrderLine {
 		this.quantity = quantity;
 	}
 	
-	public BigDecimal getLineTotal() {
-		return getProduct().getPrice().multiply(new BigDecimal(getQuantity()));
+	public float getLineTotal() {
+		return getProduct().getPrice() * getQuantity();
 	}
-	
 	
 	public Product getProduct() {
 		return product;
@@ -30,4 +27,8 @@ public class OrderLine {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	} 
+	@Override
+	public String toString() {
+		return getQuantity() + " " + getProduct().toString();
+	}
 }

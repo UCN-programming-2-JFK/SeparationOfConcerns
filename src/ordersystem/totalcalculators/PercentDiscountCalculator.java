@@ -1,8 +1,6 @@
 package ordersystem.totalcalculators;
 
-import java.math.BigDecimal;
 import java.util.List;
-
 import ordersystem.OrderLine;
 import ordersystem.interfaces.OrderTotalCalculator;
 
@@ -18,13 +16,13 @@ public class PercentDiscountCalculator implements OrderTotalCalculator {
 	}
 
 	@Override
-	public BigDecimal getTotal(List<OrderLine> orderLines) {
-		BigDecimal total = new BigDecimal(0);
+	public float getTotal(List<OrderLine> orderLines) {
+		float total = 0;
 		for(OrderLine line : orderLines) {			
-			total = total.add(line.getLineTotal());
+			total += line.getLineTotal();
 		}
-		BigDecimal discount = total.multiply(new BigDecimal(getPercentageDiscount()));
-		return total.subtract(discount);
+		float discount = total * getPercentageDiscount();
+		return total - discount;
 	}
 
 	public float getPercentageDiscount() {
