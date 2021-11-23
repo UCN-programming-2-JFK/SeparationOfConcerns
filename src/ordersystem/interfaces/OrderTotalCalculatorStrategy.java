@@ -4,6 +4,6 @@ import java.util.List;
 
 import ordersystem.OrderLine;
 
-public interface OrderTotalCalculator {
+public interface OrderTotalCalculatorStrategy {
 	float getTotal(List<OrderLine> orderLines); 
 }

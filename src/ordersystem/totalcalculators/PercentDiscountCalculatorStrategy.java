@@ -2,15 +2,15 @@ package ordersystem.totalcalculators;
 
 import java.util.List;
 import ordersystem.OrderLine;
-import ordersystem.interfaces.OrderTotalCalculator;
+import ordersystem.interfaces.OrderTotalCalculatorStrategy;
 
 /** DefaultCalculator sums up the line total of all order lines and subtracts the discount */
 
-public class PercentDiscountCalculator implements OrderTotalCalculator {
+public class PercentDiscountCalculatorStrategy implements OrderTotalCalculatorStrategy {
 
 	private float percentageDiscount;
 	
-	public PercentDiscountCalculator(float percentageDiscount) {
+	public PercentDiscountCalculatorStrategy(float percentageDiscount) {
 		super();
 		this.percentageDiscount = percentageDiscount;
 	}

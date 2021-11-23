@@ -3,11 +3,11 @@ package ordersystem.totalcalculators;
 import java.util.List;
 import ordersystem.OrderLine;
 import ordersystem.Product;
-import ordersystem.interfaces.OrderTotalCalculator;
+import ordersystem.interfaces.OrderTotalCalculatorStrategy;
 
 /** CheapestItemFreeCalculator will subtract one of the cheapest items in the orderlines if more than one item exists */
 
-public class CheapestItemFreeCalculator implements OrderTotalCalculator {
+public class CheapestItemFreeCalculatorStrategy implements OrderTotalCalculatorStrategy {
 
 	@Override
 	public float getTotal(List<OrderLine> orderLines) {

@@ -4,19 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ordersystem.interfaces.Order;
-import ordersystem.interfaces.OrderTotalCalculator;
-import ordersystem.totalcalculators.DefaultCalculator;
+import ordersystem.interfaces.OrderTotalCalculatorStrategy;
+import ordersystem.totalcalculators.DefaultCalculatorStrategy;
 
 public class ConcreteOrder implements Order {
 	private List<OrderLine> orderlines = new ArrayList<OrderLine>();
-	private OrderTotalCalculator totalsCalculator;
+	private OrderTotalCalculatorStrategy totalsCalculator;
 	
-	public ConcreteOrder(OrderTotalCalculator totalsCalculator) {
+	public ConcreteOrder(OrderTotalCalculatorStrategy totalsCalculator) {
 		super();
 		this.totalsCalculator = totalsCalculator;
 	}
 	
-	public ConcreteOrder() {this(new DefaultCalculator());}
+	public ConcreteOrder() {this(new DefaultCalculatorStrategy());}
 
 	
 	public List<OrderLine> getOrderlines() {
@@ -28,10 +28,10 @@ public class ConcreteOrder implements Order {
 	public void addOrderLine(OrderLine orderline) {
 		this.orderlines.add(orderline);
 	}
-	public OrderTotalCalculator getTotalsCalculator() {
+	public OrderTotalCalculatorStrategy getTotalsCalculator() {
 		return totalsCalculator;
 	}
-	public void setTotalsCalculator(OrderTotalCalculator totalsCalculator) {
+	public void setTotalsCalculator(OrderTotalCalculatorStrategy totalsCalculator) {
 		this.totalsCalculator = totalsCalculator;
 	}
 	
